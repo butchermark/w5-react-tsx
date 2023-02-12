@@ -2,6 +2,7 @@ import DataCard from "../shared/DataCard";
 import Icon from "../shared/Icons";
 import { IMonsterData } from "../../utils/ImonsterData.interface";
 import { IconType } from "../shared/Icons";
+import "./Monster.css";
 
 interface MonsterProps {
   monster: IMonsterData;

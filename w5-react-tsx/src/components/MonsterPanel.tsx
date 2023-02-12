@@ -3,6 +3,7 @@ import { useState } from "react";
 import DataCard from "./shared/DataCard";
 import Icon from "./shared/Icons";
 import { IconType } from "./shared/Icons";
+import "./MonsterPanel.css";
 
 const MonsterPanel = (props: any) => {
   const iconValueArray = Object.values(IconType);
@@ -11,6 +12,10 @@ const MonsterPanel = (props: any) => {
   const [monsterAttack, setMonsterAttack] = useState("");
   const [monsterDefense, setMonsterDefense] = useState("");
   const [currentIconIndex, setCurrentIconIndex] = useState(0);
+
+  const setSizeBig = { height: "50px", width: "50px" };
+  const setSizeMedium = { height: "30px", width: "30px" };
+
   const MAX_MONSTER_ICON_INDEX = 4;
 
   useEffect(() => {
@@ -47,7 +52,6 @@ const MonsterPanel = (props: any) => {
   const nameChangeHandler = (event: {
     target: { value: React.SetStateAction<string> };
   }) => {
-    console.log(event.target.value);
     setMonsterName(event.target.value);
   };
   const attackChangeHandler = (event: {
@@ -85,9 +89,17 @@ const MonsterPanel = (props: any) => {
       <DataCard className="create-monster__card">
         <form onSubmit={submitHandler}>
           <div className="create-monster-form__element-chooser">
-            <Icon iconName={IconType.left} onClick={elementalChangeBackward} />
-            <Icon iconName={elemental} />
-            <Icon iconName={IconType.right} onClick={elementalChangeForward} />
+            <Icon
+              iconName={IconType.left}
+              setStyle={setSizeMedium}
+              onClick={elementalChangeBackward}
+            />
+            <Icon iconName={elemental} setStyle={setSizeBig} />
+            <Icon
+              iconName={IconType.right}
+              setStyle={setSizeMedium}
+              onClick={elementalChangeForward}
+            />
           </div>
           <input
             type="text"
@@ -96,7 +108,7 @@ const MonsterPanel = (props: any) => {
             onChange={nameChangeHandler}
           />
           <div className="create-monster-form__stat-chooser">
-            <Icon iconName={IconType.attack} />
+            <Icon iconName={IconType.attack} setStyle={setSizeMedium} />
             <input
               type="number"
               min="1"
@@ -105,7 +117,7 @@ const MonsterPanel = (props: any) => {
               value={monsterAttack}
               onChange={attackChangeHandler}
             ></input>
-            <Icon iconName={IconType.defense} />
+            <Icon iconName={IconType.defense} setStyle={setSizeMedium} />
             <input
               type="number"
               min="1"

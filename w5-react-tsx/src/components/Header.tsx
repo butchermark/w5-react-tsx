@@ -1,5 +1,5 @@
-import React from "react";
 import MyComponent from "./shared/DataCard";
+import "./Header.css";
 
 interface IHeader {
   text: string;
@@ -13,10 +13,16 @@ function Header({ text, bgColor, textColor }: IHeader) {
     color: textColor,
   };
   return (
-    <header style={headerStyles}>
+    <header className="header" style={headerStyles}>
       <div className="header-container">
-        <img src="../logo.svg" alt="Monsters" width="200" height="200"></img>
-        <h1>{text}</h1>
+        <img
+          className="header-logo"
+          src="../logo.svg"
+          alt="Monsters"
+          width="200"
+          height="200"
+        ></img>
+        <h1 className="header-title">{text}</h1>
         <MyComponent />
       </div>
     </header>

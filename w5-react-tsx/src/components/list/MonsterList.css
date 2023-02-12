@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+.monster-list-outer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.monster-list-outer h2 {
+  font-family: "Creepster", cursive;
+  align-self: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}

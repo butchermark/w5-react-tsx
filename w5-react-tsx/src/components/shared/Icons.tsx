@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 //@ts-ignore
 import Air from "../../res/air.svg";
 //@ts-ignore
@@ -17,6 +17,7 @@ import ArrowLeft from "../../res/arrow-left.svg";
 import ArrowRight from "../../res/arrow-right.svg";
 //@ts-ignore
 import TrashCan from "../../res/trash-can.svg";
+import "./Icons.css";
 
 export enum IconType {
   air = "air",

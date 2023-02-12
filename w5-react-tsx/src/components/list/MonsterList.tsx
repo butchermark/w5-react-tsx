@@ -1,5 +1,6 @@
 import { IMonsterData } from "../../utils/ImonsterData.interface";
 import Monster from "./Monster";
+import "./MonsterList.css";
 
 interface IMonsterListProps {
   monsters: IMonsterData[];

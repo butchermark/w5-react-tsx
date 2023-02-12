@@ -1,0 +1,20 @@
+.header {
+  font-family: "Creepster", cursive;
+  display: flex;
+  justify-content: center;
+}
+.header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-logo {
+  margin-left: 40px;
+  margin-bottom: -75px;
+  height: 150px;
+}
+
+.header-title {
+  font-size: 75px;
+}

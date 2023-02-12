@@ -1,0 +1,23 @@
+.list-item-wrapper {
+  margin-bottom: 10px;
+}
+
+.list-item {
+  margin-left: 50px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.list-item__name-stats {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.list-item-name-stats__stats {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
