@@ -9,7 +9,11 @@ interface IMonsterListProps {
 
 const MonsterList = (props: IMonsterListProps) => {
   if (props.monsters.length === 0) {
-    return <h2>No monsters</h2>;
+    return (
+      <div className="monster-list-outer-h2-nodata">
+        <h2>No monsters</h2>
+      </div>
+    );
   }
 
   const deleteMonster = (name: string) => {
@@ -22,7 +26,7 @@ const MonsterList = (props: IMonsterListProps) => {
 
   return (
     <div className="monster-list-outer">
-      <h2>Monsters:</h2>
+      <h2 className="monster-list-outer-h2">Monsters:</h2>
       <ul>
         {props.monsters.map((monster: IMonsterData) => (
           <Monster

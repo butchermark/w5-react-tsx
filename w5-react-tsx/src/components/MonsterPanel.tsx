@@ -116,6 +116,7 @@ const MonsterPanel = (props: any) => {
               step="1"
               value={monsterAttack}
               onChange={attackChangeHandler}
+              placeholder="Attack"
             ></input>
             <Icon iconName={IconType.defense} setStyle={setSizeMedium} />
             <input
@@ -125,6 +126,7 @@ const MonsterPanel = (props: any) => {
               step="1"
               value={monsterDefense}
               onChange={defenseChangeHandler}
+              placeholder="Defense"
             ></input>
           </div>
           <button type="submit">Add</button>

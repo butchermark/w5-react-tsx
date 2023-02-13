@@ -7,9 +7,13 @@
   align-items: center;
 }
 
-.monster-list-outer h2 {
+.monster-list-outer-h2 {
   font-family: "Creepster", cursive;
-  align-self: center;
+}
+
+.monster-list-outer-h2-nodata {
+  display: flex;
+  justify-content: center;
 }
 
 ul {
