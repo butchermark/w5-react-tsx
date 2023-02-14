@@ -9,7 +9,14 @@ function App() {
   const [monsters, setMonsters] = useState<IMonsterData[]>([]);
   const [filteredMonsters, setFilteredMonsters] = useState<IMonsterData[]>([]);
   const [isSearch, setIsSearch] = useState(false);
-  const [currentInputValue, setCurrentInputValue] = useState("");
+
+  useEffect(() => {
+    if (filteredMonsters.length > 0) {
+      setIsSearch(true);
+    } else {
+      setIsSearch(false);
+    }
+  }, [filteredMonsters]);
 
   const addMonsterHandler = (monster: IMonsterData) => {
     setMonsters((prevMonsters) => {
@@ -23,24 +30,18 @@ function App() {
     );
   };
 
-  const filterMonsters = (monsters: IMonsterData[]) => {
-    let x: IMonsterData[] = monsters.filter((monster) => {
-      monster.name.toLowerCase().includes(currentInputValue.toLowerCase());
-    });
-    setFilteredMonsters(x);
-    setMonsters(filteredMonsters);
-  };
-
   return (
     <div className="app">
       <Header />
       <NewMonster onAddMonster={addMonsterHandler} />
       <SearchPanel
         monstersArray={monsters}
-        filterMonsters={filterMonsters}
-        currentInputSetter={setCurrentInputValue}
+        setFilteredMonsters={setFilteredMonsters}
       />
-      <MonsterList monsters={monsters} deleteMonster={removeMonsterHandler} />
+      <MonsterList
+        monsters={isSearch ? filteredMonsters : monsters}
+        deleteMonster={removeMonsterHandler}
+      />
     </div>
   );
 }

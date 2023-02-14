@@ -1,25 +1,39 @@
-import React, { useState } from "react";
+import React, {
+  Dispatch,
+  FunctionComponent,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import { IMonsterData } from "../utils/ImonsterData.interface";
 import "./SearchPanel.css";
 
-interface Props {
+interface SearchPanelProps {
   monstersArray: IMonsterData[];
-  filterMonsters: (monsters: IMonsterData[]) => void;
-  currentInputSetter: React.Dispatch<React.SetStateAction<string>>;
+  setFilteredMonsters: Dispatch<SetStateAction<IMonsterData[]>>;
 }
 
-const SearchPanel: React.FC<Props> = ({
+const SearchPanel: FunctionComponent<SearchPanelProps> = ({
   monstersArray,
-  filterMonsters,
-  currentInputSetter,
+  setFilteredMonsters,
 }) => {
   const [input, setInput] = useState("");
 
   const handleChange = (e: any) => {
     setInput(e.target.value);
-    filterMonsters(monstersArray);
-    currentInputSetter(input);
   };
+
+  useEffect(() => {
+    if (input !== "") {
+      let filteredMonsters: IMonsterData[] = monstersArray.filter((monster) => {
+        return monster.name.toLowerCase().includes(input.toLowerCase());
+      });
+
+      setFilteredMonsters(filteredMonsters);
+    } else {
+      setFilteredMonsters([]);
+    }
+  }, [input]);
 
   return (
     <div className="search-panel">
